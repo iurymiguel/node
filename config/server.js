@@ -1,11 +1,16 @@
 var express = require('express'); //Retorna a função do framework express
 var consign = require('consign');
+var bodyParser = require('body-parser');
+
 
 var app = express(); //Executa a função recuperada acima.
 
 app.set('view engine', 'ejs'); //ejs vai ser o motor de geração de views html.
 //Diz que as views estão na pasta esepcificada.
 app.set('views', './app/views'); //Caminho de onde esse módulo está sendo usado.
+
+//Inclui bodyParser como midddleware.
+app.use(bodyParser.urlencoded({extended: true}));
 
 //pega os modulos da pasta routes para aplicação.
 //Com isso, não precisa fazer os requires das rotas em app.js.
