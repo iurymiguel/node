@@ -1,7 +1,7 @@
 var express = require('express'); //Retorna a função do framework express
 var consign = require('consign');
 var bodyParser = require('body-parser');
-
+var expressValidator = require('express-validator');
 
 var app = express(); //Executa a função recuperada acima.
 
@@ -11,6 +11,8 @@ app.set('views', './app/views'); //Caminho de onde esse módulo está sendo usad
 
 //Inclui bodyParser como midddleware.
 app.use(bodyParser.urlencoded({extended: true}));
+//Inclui expressValidator como midddleware.
+app.use(expressValidator());
 
 //pega os modulos da pasta routes para aplicação.
 //Com isso, não precisa fazer os requires das rotas em app.js.
